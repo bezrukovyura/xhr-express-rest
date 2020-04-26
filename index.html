@@ -7,7 +7,6 @@
 
   function add(toAdd, callBack) {
     let xhr = new XMLHttpRequest();   // new HttpRequest instance 
-    let theUrl = "/json-handler";
     xhr.open("PUT", 'http://localhost:3000/item');
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify({ title: toAdd }))
@@ -23,7 +22,6 @@
 
   function remove(toRemove, callBack) {
     let xhr = new XMLHttpRequest();   // new HttpRequest instance 
-    let theUrl = "/json-handler";
     xhr.open("DELETE", 'http://localhost:3000/item');
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify({ title: toRemove }))
@@ -39,7 +37,6 @@
 
   function get(callBack) {
     let xhr = new XMLHttpRequest();   // new HttpRequest instance 
-    let theUrl = "/json-handler";
     xhr.open("GET", 'http://localhost:3000/item');
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send()
