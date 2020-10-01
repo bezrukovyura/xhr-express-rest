@@ -1,71 +1,15 @@
 <input type="text" id="input-title">
-<button onclick="_add()">add</button>
-<button onclick="_remove()">remove</button>
-<button onclick="_get()">get</button>
+<button class="btn-add">add</button>
 
-<script>
 
-  function add(toAdd, callBack) {
-    let xhr = new XMLHttpRequest();   // new HttpRequest instance 
-    xhr.open("PUT", 'http://localhost:3000/item');
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(JSON.stringify({ title: toAdd }))
-    xhr.onload = function () {
-      if (xhr.status != 200) {
-        alert(`Ошибка ${xhr.status}: ${xhr.statusText}`);
-      } else {
-        let response = JSON.parse(xhr.response);
-        callBack(response)
-      }
-    };
-  }
+<div class="items-wrapper">
+</div>
 
-  function remove(toRemove, callBack) {
-    let xhr = new XMLHttpRequest();   // new HttpRequest instance 
-    xhr.open("DELETE", 'http://localhost:3000/item');
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(JSON.stringify({ title: toRemove }))
-    xhr.onload = function () {
-      if (xhr.status != 200) {
-        alert(`Ошибка ${xhr.status}: ${xhr.statusText}`);
-      } else {
-        let response = JSON.parse(xhr.response);
-        callBack(response)
-      }
-    };
-  }
 
-  function get(callBack) {
-    let xhr = new XMLHttpRequest();   // new HttpRequest instance 
-    xhr.open("GET", 'http://localhost:3000/item');
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send()
-    xhr.onload = function () {
-      if (xhr.status != 200) {
-        alert(`Ошибка ${xhr.status}: ${xhr.statusText}`);
-      } else {
-        let response = JSON.parse(xhr.response);
-        callBack(response)
-      }
-    };
-  }
+<script src="script.js"></script>
 
-  function onSuccessAdd(items) {
-    console.log(items);
-  }
-
-  function _add() {
-    let title = document.querySelector('#input-title').value;
-    add(title, onSuccessAdd);
-  }
-
-  function _remove() {
-    let title = document.querySelector('#input-title').value;
-    remove(title, onSuccessAdd);
-  }
-
-  function _get() {
-    get(onSuccessAdd);
-  }
-
-</script>
+<style>
+    .items-wrapper--loading {
+        background-color: gray;
+    }
+</style>
