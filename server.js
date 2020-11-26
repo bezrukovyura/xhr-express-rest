@@ -1,3 +1,11 @@
+/**
+ * API
+ * 
+ * PUT => {title: 'string'}
+ * GET => ['string', ...]
+ * DELETE => {title: 'string'}
+ */
+
 var items = [];
 
 var express = require('express');
