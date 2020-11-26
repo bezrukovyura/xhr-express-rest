@@ -1,3 +1,12 @@
+/**
+ * API
+ * 
+ * PUT => {title: 'string', id: 1}
+ * GET => [{title: 'string', id: 1}, ...]
+ * DELETE => {id: 1}
+ */
+
+
 var items = []; // [{title: string, id: number}]
 var taskId = 0;
 
